@@ -1,0 +1,6 @@
+{brand: 'Samsung ', phone_name: 'Galaxy S22 5G', slug: 'samsung_galaxy_s22_5g-11253', image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg'}
+brand: "Samsung "
+image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg"
+phone_name: "Galaxy S22 5G"
+slug: "samsung_galaxy_s22_5g-11253"
+[[Prototype]]: Object
