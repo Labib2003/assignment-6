@@ -4,3 +4,23 @@ image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg"
 phone_name: "Galaxy S22 5G"
 slug: "samsung_galaxy_s22_5g-11253"
 [[Prototype]]: Object
+
+
+
+{status: true, data: {…}}
+data:
+brand: "Apple"
+image: "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg"
+mainFeatures:
+chipSet: "Apple A15 Bionic (5 nm)"
+displaySize: "6.1 inches, 90.2 cm2 (~86.0% screen-to-body ratio)"
+memory: "128GB 4GB RAM, 256GB 4GB RAM, 512GB 4GB RAM"
+sensors: (6) ['Face ID', 'accelerometer', 'gyro', 'proximity', 'compass', 'barometer']
+storage: "128GB/256GB/512GB storage, no card slot"
+[[Prototype]]: Object
+name: "iPhone 13"
+others: {WLAN: 'Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, hotspot', Bluetooth: '5.0, A2DP, LE', GPS: 'Yes, with A-GPS, GLONASS, GALILEO, BDS, QZSS', NFC: 'Yes', Radio: 'No', …}
+releaseDate: "Released 2021, September 24"
+slug: "apple_iphone_13-11103"
+[[Prototype]]: Object
+status: true
