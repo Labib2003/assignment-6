@@ -19,9 +19,12 @@ const displayResults = (data) => {
     else {
         const phones = data.data;
         phones.forEach(phone => {
-            const resultCard = document.createElement('div');
-            resultCard.classList.add('col-sm-6');
-            resultCard.innerHTML = `
+            const index = phones.indexOf(phone);
+            if (index < 20) {
+                const resultCard = document.createElement('div');
+                resultCard.classList.add('col-12');
+                resultCard.classList.add('col-lg-4');
+                resultCard.innerHTML = `
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${phone.phone_name}</h5>
@@ -30,8 +33,9 @@ const displayResults = (data) => {
                         <a onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary">More Info</a>
                     </div>
                 </div>
-            `;
-            resultCardContainer.appendChild(resultCard);
+                `;
+                resultCardContainer.appendChild(resultCard);
+            }
         });
     };
 };
@@ -72,8 +76,7 @@ const displayPhoneDetails = (data) => {
         p.innerText = sensor;
         sensorList.appendChild(p);
     });
-    console.log(sensors);
-}
+};
 
 searchBtn.addEventListener('click', () => {
     resultCardContainer.innerHTML = '';
