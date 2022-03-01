@@ -11,22 +11,29 @@ const loadData = (phoneName) => {
 };
 
 const displayResults = (data) => {
-    const phones = data.data;
-    phones.forEach(phone => {
-        const resultCard = document.createElement('div');
-        resultCard.classList.add('col-sm-6');
-        resultCard.innerHTML = `
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">${phone.phone_name}</h5>
-                    <p class="card-text">Brand: ${phone.brand}</p>
-                    <img src="${phone.image}" class="card-img-top">
-                    <a onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary">More Info</a>
+    if (data.status === false) {
+        const noResult = document.createElement('h3');
+        noResult.innerText = 'No Result Found';
+        resultCardContainer.appendChild(noResult);
+    }
+    else {
+        const phones = data.data;
+        phones.forEach(phone => {
+            const resultCard = document.createElement('div');
+            resultCard.classList.add('col-sm-6');
+            resultCard.innerHTML = `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${phone.phone_name}</h5>
+                        <p class="card-text">Brand: ${phone.brand}</p>
+                        <img src="${phone.image}" class="card-img-top">
+                        <a onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary">More Info</a>
+                    </div>
                 </div>
-            </div>
-        `;
-        resultCardContainer.appendChild(resultCard);
-    });
+            `;
+            resultCardContainer.appendChild(resultCard);
+        });
+    };
 };
 
 const loadPhoneDetails = (slug) => {
@@ -54,9 +61,18 @@ const displayPhoneDetails = (data) => {
                 <p>Memory: ${data.data.mainFeatures.memory}</p>
                 <p>Storage: ${data.data.mainFeatures.storage}</p>
             </div>
+            <h6>Sensors</h6>
+            <div id="sensor-list"></div>
         </div>
     `;
-
+    const sensorList = document.getElementById('sensor-list');
+    const sensors = data.data.mainFeatures.sensors;
+    sensors.forEach(sensor => {
+        const p = document.createElement('p');
+        p.innerText = sensor;
+        sensorList.appendChild(p);
+    });
+    console.log(sensors);
 }
 
 searchBtn.addEventListener('click', () => {
