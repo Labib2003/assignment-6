@@ -58,7 +58,7 @@ const loadPhoneDetails = (slug) => {
 const displayPhoneDetails = (data) => {
     const validateReleaseDate = () => {
         if (data.data.releaseDate === ''){
-            return 'Release date unknown';
+            return 'Release date UNKNOWN';
         }
         else {
             return data.data.releaseDate;
