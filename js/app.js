@@ -80,8 +80,16 @@ const displayPhoneDetails = (data) => {
                 <p>Display: ${data.data.mainFeatures.displaySize}</p>
                 <p>Memory: ${data.data.mainFeatures.memory}</p>
                 <p>Storage: ${data.data.mainFeatures.storage}</p>
+                <div id="sensor-list"></div>
+                <hr>
+                <h6>Other Features</h6>
+                <p>WLAN: ${data.data.others.WLAN}</p>
+                <p>Bluetooth: ${data.data.others.Bluetooth}</p>
+                <p>GPS: ${data.data.others.GPS}</p>
+                <p>NFC: ${data.data.others.NFC}</p>
+                <p>Radio: ${data.data.others.Radio}</p>
+                <p>USB: ${data.data.others.USB}</p>
             </div>
-            <div id="sensor-list"></div>
         </div>
     `;
     const sensorList = document.getElementById('sensor-list');
