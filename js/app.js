@@ -24,6 +24,7 @@ const displayResults = (data) => {
         const phones = data.data;
         phones.forEach(phone => {
             const index = phones.indexOf(phone);
+            // show first 20 results
             if (index < 20) {
                 const resultCard = document.createElement('div');
                 resultCard.classList.add('col-12');
@@ -33,7 +34,8 @@ const displayResults = (data) => {
                     <div class="card-body">
                         <h5 class="card-title">${phone.phone_name}</h5>
                         <p class="card-text">Brand: ${phone.brand}</p>
-                        <img src="${phone.image}" class="card-img-top mb-5">
+                        <img src="${phone.image}" class="card-img mb-5">
+                        <br>
                         <a onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary">More Info</a>
                     </div>
                 </div>
@@ -54,6 +56,14 @@ const loadPhoneDetails = (slug) => {
 
 // displaying more info
 const displayPhoneDetails = (data) => {
+    const validateReleaseDate = () => {
+        if (data.data.releaseDate === ''){
+            return 'Release date unknown';
+        }
+        else {
+            return data.data.releaseDate;
+        }
+    };
     phoneDetails.innerHTML = '';
     phoneDetails.innerHTML = `
         <div class="card text-center">
@@ -62,7 +72,8 @@ const displayPhoneDetails = (data) => {
             </div>
             <div class="card-body">
                 <h5 class="card-title">${data.data.name}</h5>
-                <p class="card-title">${data.data.releaseDate}</p>
+                <p class="card-title">${validateReleaseDate()}</p>
+                <img class="mb-2" src='${data.data.image}'>
                 <h6>Hardwire info</h6>
                 <hr>
                 <p>Chipset: ${data.data.mainFeatures.chipSet}</p>
@@ -78,7 +89,7 @@ const displayPhoneDetails = (data) => {
     const h6 = document.createElement('h6');
     h6.innerText = 'Sensors:';
     sensors.forEach(sensor => {
-        h6.innerText = h6.innerText + ',' + sensor;
+        h6.innerText = h6.innerText + ',' + ' ' + sensor;
         sensorList.appendChild(h6);
     });
 };
